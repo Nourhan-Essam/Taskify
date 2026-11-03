@@ -1,0 +1,54 @@
+.taskify-custom-header {
+    background: #4A2C2A !important;      
+    background-color: #4A2C2A !important;
+    padding: 16px 24px !important;
+    border-radius: 0 0 20px 20px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-shadow: 0 4px 12px rgba(74, 44, 42, 0.15) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+
+.taskify-header-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    
+}
+
+.taskify-header-text h2 {
+    color: #E6D5B8 !important;          
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.taskify-header-text p {
+    color: #E6D5B8 !important;          
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0.9 !important;
+}
+
+
+.taskify-header-img {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.taskify-header-img img {
+    width: 125px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 12px !important;
+  
+}

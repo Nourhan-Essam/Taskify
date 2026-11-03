@@ -1,0 +1,149 @@
+.task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 16px 18px;
+    border-radius: 20px;
+   box-shadow: 0 8px 20px rgba(74, 44, 42, 0.05);
+    border: 1px solid #E6D5B8;
+    color: #4A2C2A;
+    border-left: 6px solid #4A2C2A; 
+    margin: 0 16px 14px 16px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(74, 44, 42, 0.1);
+}
+
+
+.task-card.priority-first,
+.task-card.priority-high {
+    border-left-color: #f43f5e; 
+}
+
+.task-card.priority-second,
+.task-card.priority-medium {
+    border-left-color: #f59e0b; 
+}
+
+.task-card.priority-third,
+.task-card.priority-low {
+    border-left-color: #10b981; 
+}
+
+.task-left-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    flex: 1;
+}
+
+
+.task-checkbox {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #4A2C2A;
+    margin-top: 2px;
+    border-radius: 50%;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.task-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #4A2C2A;
+    text-transform: capitalize;
+}
+
+.task-desc {
+    margin: 0;
+    font-size: 15px;
+    color: #855E3A;
+    line-height: 1.4;
+}
+
+.task-dates {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #4A2C2A;
+    background: #FCF4F1;
+    padding: 3px 8px;
+    border-radius: 6px;
+    width: fit-content;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.task-right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.priority-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.priority-badge.first,
+.priority-badge.high {
+    background: #fdf2f2;
+    color: #8c3b38;
+}
+
+.priority-badge.second,
+.priority-badge.medium {
+   background: #fcf9f0;
+    color: #b8860b;
+}
+
+.priority-badge.third,
+.priority-badge.low {
+   background: #f2f7f2;
+    color: #4f6f52;
+}
+
+/* delete & update buttons*/
+.task-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.icon-btn {
+    background: #FCF4F1;
+    border: 1px solid #E6D5B8;
+    padding: 6px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: #E6D5B8;
+    transform: scale(1.05);
+}
+
+.task-card.completed {
+    opacity: 0.5;
+    filter: grayscale(0.6);
+}

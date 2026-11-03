@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+body, .app-container {
+    width: 100%;
+    min-height: 100vh;
+    color: #4A2C2A;;
+    background-color: #FBF9F5;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 14px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #FDFBF7; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4A2C2A; 
+    border-radius: 10px;
+    border: 2px solid #FDFBF7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #855E3A; 
+}
