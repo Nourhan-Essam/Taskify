@@ -1,9 +1,14 @@
-import { useState } from 'react'
 import './TaskCard.css'
-import CreateTask from '../CreateTask/CreateTask'
 
 const TaskCard = ({task, onEdit, onDelete, onToggle}) => {
-
+   const getCategoryClass = (cat) => {
+  if (!cat) return 'default';
+  const lower = cat.toLowerCase();
+  if (lower.includes('work') || lower.includes('dev') || lower.includes('work')) return 'work';
+  if (lower.includes('personal') || lower.includes('care') || lower.includes('personal')) return 'personal';
+  if (lower.includes('learn') || lower.includes('study') || lower.includes('learning')) return 'learning';
+  return 'default';
+};
 return(
   
   <div className={`task-card ${task.completed ? 'completed' : ''}`}>
@@ -20,9 +25,12 @@ return(
                     {task.description && (
                         <p className="task-desc">{task.description}</p>
                     )}
+                    
                     <div className="task-dates">
                         <span>📅 {task.startDate || 'No start date'}</span>
-                        {task.enddate && <span> → {task.enddate}</span>}
+                        {(task.endDate || task.enddate) && (
+                            <span> → {task.endDate || task.enddate}</span>
+                        )}
                     </div>
                 </div>
             </div>
@@ -34,6 +42,11 @@ return(
                         {task.priority}
                     </span>
                 )}
+               {task.category && (
+  <span className={`task-category-tag ${getCategoryClass(task.category)}`}>
+    {task.category}
+  </span>
+)}
                 <div className="task-actions">
                     <button 
                         onClick={() => onEdit(task)} 

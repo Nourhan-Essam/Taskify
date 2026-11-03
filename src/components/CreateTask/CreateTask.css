@@ -2,16 +2,15 @@
     padding: 20px;
     background-color:#FCF4F1 !important;
     min-height: 100vh;
-    padding-bottom: 90px; /* مساحة عشان الـ Bottom Nav */
+    padding-bottom: 90px;
 }
 
-/* الهيدر وكارت العداد فوق */
 .create-task-top-section {
     margin-bottom: 25px;
 }
 
 .tasks-counter-card {
-    background-color: #4A2C2A !important; /* Chocolate Brown */
+    background-color: #4A2C2A !important;
     padding: 18px;
     border-radius: 16px;
     margin-bottom: 15px;
@@ -31,7 +30,6 @@
     opacity: 0.85;
 }
 
-
 .days-strip {
     display: flex;
     gap: 10px;
@@ -46,7 +44,7 @@
 }
 
 .days-strip::-webkit-scrollbar-thumb {
-   background: #855E3A !important;;
+    background: #855E3A !important;
     border-radius: 10px;
 }
  
@@ -85,7 +83,6 @@
     color: #E6D5B8 !important;
 }
 
-
 .create-task-content {
     display: flex;
     flex-direction: column;
@@ -103,32 +100,49 @@
     gap: 6px;
 }
 
-.input-group label {
-    font-size: 13px;
-    font-weight: 600;
+
+.input-group label, 
+.form-group label, 
+.category-label {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
     color: #4A2C2A !important;
+    margin-bottom: 6px;
+    display: block;
 }
 
+
+.create-task-content input, 
+.create-task-content select,
 .input-group input, 
-.input-group select {
-    padding: 12px;
+.input-group select,
+.task-category-input, 
+input[type="text"].custom-category-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px 14px !important;
     border: 1px solid #E6D5B8 !important;
-    border-radius: 10px;
-    font-size: 14px;
+    border-radius: 12px !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
     background-color: #FCF4F1 !important;
     color: #211D11 !important;
-    outline: none;
-    transition: border-color 0.2s, background-color 0.2s;
+    outline: none !important;
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s !important;
 }
 
+
+.create-task-content input:focus, 
+.create-task-content select:focus,
 .input-group input:focus, 
-.input-group select:focus {
+.input-group select:focus,
+.task-category-input:focus, 
+input[type="text"].custom-category-input:focus {
     border-color: #855E3A !important;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(133, 94, 58, 0.12);
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(133, 94, 58, 0.12) !important;
 }
-
-
 .time-inputs-row {
     display: flex;
     gap: 12px;
@@ -137,7 +151,6 @@
 .time-inputs-row .input-group {
     flex: 1;
 }
-
 
 .create-btn {
     margin-top: 10px;

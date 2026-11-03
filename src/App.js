@@ -11,7 +11,9 @@ function App() {
     return localStorage.getItem('taskify-username') || "";
   });
   const [editingTasks, setEditingTasks] = useState(null)
-  const [currentPage, setCurrentPage] = useState('welcome');
+  const [currentPage, setCurrentPage] = useState(() => {
+    return localStorage.getItem('taskify-username') ?"home" : "welcome";
+  });
 
   useEffect(() => {
     localStorage.setItem('taskify-tasks', JSON.stringify(tasks));

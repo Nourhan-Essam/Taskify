@@ -15,6 +15,7 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
     const [selectedDate, setSelectedDate] = useState(formattedToday); 
     const [priority, setPriority] = useState("");
     const [description, setDescription] = useState(editingTasks ? editingTasks.description : '');
+    const [categoryInput, setCategoryInput] = useState('');
 
     useEffect(() => {
         if(editingTasks){
@@ -26,6 +27,9 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
         }
     }, [editingTasks, formattedToday]);
 
+
+
+    
     const generateDays = () => {
         let daysArray = [];
         const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -58,11 +62,13 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
             description: description,
             startDate: startDate, 
             endDate: endDate,    
+            category: categoryInput.trim(),
             priority: priority,
             date: selectedDate
         };
     
         onSave(newTask);
+        setCategoryInput('');
     }
 
     return(
@@ -128,6 +134,17 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
                     </div>
                 </div>
                 
+                    <div className="form-group">
+  <label>Category</label>
+  <input 
+    type="text"
+    placeholder="e.g. Work, Study, Personal..."
+    value={categoryInput}
+    onChange={(e) => setCategoryInput(e.target.value)}
+    className="custom-category-input"
+  />
+</div>
+
                 <div className="input-group">
                     <label>Priority</label>
                     <select 
