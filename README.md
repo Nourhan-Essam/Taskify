@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <a href="https://taskify-nine-theta.vercel.app/">
+  <a href="https://tasks-hazel-ten.vercel.app">
     <img src="https://img.shields.io/badge/🚀_Live_Demo-Taskify-4A2C2A?style=for-the-badge&logoColor=white" alt="Live Demo" />
   </a>
   <a href="https://github.com/Nourhan-Essam/Taskify.git">
@@ -26,7 +26,7 @@
 
 ## 🔗 Project Links
 
-- 🌐 **Live Demo:** [https://taskify-nine-theta.vercel.app/](https://taskify-nine-theta.vercel.app/)
+- 🌐 **Live Demo:** [https://tasks-hazel-ten.vercel.app](https://tasks-hazel-ten.vercel.app)
 - 💻 **GitHub Repository:** [https://github.com/Nourhan-Essam/Taskify.git](https://github.com/Nourhan-Essam/Taskify.git)
 
 ---
