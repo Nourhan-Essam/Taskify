@@ -12,7 +12,7 @@ function App() {
   });
   const [editingTasks, setEditingTasks] = useState(null)
   const [currentPage, setCurrentPage] = useState(() => {
-    return localStorage.getItem('taskify-username') ?"welcome" : "home";
+    return localStorage.getItem('taskify-username') ?"home" : "welcome";
   });
 
   useEffect(() => {
