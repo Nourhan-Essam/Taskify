@@ -14,7 +14,7 @@
   ![React](https://img.shields.io/badge/React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)
   ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-  ![Vercel](https://taskaty-amber.vercel.app/)
+  ![Vercel](https://taskaty-amber.vercel.app)
 
   <p align="center">
     A personalized daily task and workspace management web application featuring a sophisticated <b>"Soft Luxury"</b> visual theme, responsive horizontal date navigation, and interactive task tracking.
