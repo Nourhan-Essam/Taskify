@@ -152,6 +152,32 @@ input[type="text"].custom-category-input:focus {
     flex: 1;
 }
 
+.subtask-add-btn {
+  background: #4A2C2A; /* لون بني دافئ مطابق للزرار الكبير */
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0 20px;
+  height: 46px; /* نفس ارتفاع الـ Input تقريباً عشان يبقوا متساوين */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.subtask-add-btn:hover {
+  background: #38201f; /* درجة أفتح شوية عند الـ Hover */
+  transform: translateY(-1px);
+}
+
+.subtask-add-btn:active {
+  transform: translateY(0);
+}
+
 .create-btn {
     margin-top: 10px;
     background-color: #4A2C2A !important;

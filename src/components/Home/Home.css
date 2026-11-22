@@ -28,10 +28,94 @@
     font-weight: 500;
 }
 
-
+.tasks-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+   margin: 12px 18px 16px 0; /* ظبطنا المارجن الجانبي عشان ما يطلعش بره الشاشة */
+   padding: 0 14px;
+}
 .section-title {
     font-size: 18px;
     font-weight: 700;
     color: #1e293b;
     margin: 24px 20px 16px 20px;
+}
+
+/* الشريط العلوي يجمع العنوان والفلتر وزرار الحذف في سطر واحد */
+.tasks-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 24px 0 16px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.title-and-filters {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* المسافة بين العنوان وزراير الفلتر */
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* حاوية زراير الفلترة */
+.filter-buttons-container {
+    display: flex;
+    gap: 4px;
+    background: #f1ebd9; /* خلفية دافئة خفيفة تجمعهم مع بعض */
+    padding: 3px;
+    border-radius: 10px;
+}
+
+/* زرار الفلتر */
+.filter-btn {
+    background: transparent;
+    color: #78350f;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    color: #451a03;
+}
+
+.filter-btn.active {
+    background: #451a03;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(69, 26, 3, 0.2);
+}
+
+/* زرار حذف المكتمل */
+.clear-completed-btn {
+    background: rgba(180, 83, 9, 0.08);
+    color: #78350f;
+    border: 1px solid rgba(180, 83, 9, 0.2);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.clear-completed-btn:hover {
+    background: rgba(180, 83, 9, 0.15);
+    color: #451a03;
+    transform: translateY(-1px);
 }

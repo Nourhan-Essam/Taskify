@@ -111,3 +111,90 @@
 .lets-start-btn:active {
     transform: translateY(0);
 }
+/* قسم الإحصائيات الكلي */
+.stats-section {
+    margin-top: 24px;
+    background: #faf6f0;
+    border: 1px solid #e7dcd0;
+    border-radius: 14px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* الهيدر اللي فيه كلمة Task Statistics والتبديل (Day / Week) */
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stats-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* حاوية زراير التبديل بين اليوم والأسبوع */
+.stats-toggle {
+    display: flex;
+    background: #f1ebd9;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+/* أزرار التبديل (Today / This Week) */
+.toggle-btn {
+    background: transparent;
+    border: none;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #78350f;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+    background: #451a03;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(69, 26, 3, 0.2);
+}
+
+/* شبكة كاردات الإحصائيات (3 كاردات جنب بعض) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* الكارد الفردي للإحصائية */
+.stat-box {
+    background: #ffffff;
+    border: 1px solid #e7dcd0;
+    padding: 14px 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(120, 53, 15, 0.03);
+}
+
+/* رقم الإحصائية */
+.stat-number {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #451a03;
+    margin-bottom: 4px;
+}
+
+/* عنوان أو وصف الإحصائية تحت الرقم */
+.stat-label {
+    font-size: 11px;
+    color: #78350f;
+    font-weight: 600;
+}

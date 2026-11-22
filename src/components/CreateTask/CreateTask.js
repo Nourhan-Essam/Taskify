@@ -10,6 +10,8 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
     const formattedToday = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(currentDay).padStart(2, '0')}`;
     
     const [task, setTask] = useState("");
+    const [subTaskInput, setSubTaskInput] = useState('');
+    const [subTasks, setSubTasks] = useState([]);
     const [startDate, setStartDate] = useState(formattedToday);
     const [endDate, setEnddate] = useState(formattedToday);
     const [selectedDate, setSelectedDate] = useState(formattedToday); 
@@ -24,10 +26,10 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
             setEnddate(editingTasks.endDate || formattedToday);
             setPriority(editingTasks.priority || "");
             setSelectedDate(editingTasks.date || formattedToday);
+            setCategoryInput(editingTasks.category || "");
+            setSubTasks(editingTasks.subTasks || []);
         }
     }, [editingTasks, formattedToday]);
-
-
 
     
     const generateDays = () => {
@@ -52,7 +54,24 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
     };
     
     const daysList = generateDays();
-   
+
+    const handleAddSubTask = (e) =>{
+        e.preventDefault();
+        if(!subTaskInput.trim()) return;
+
+        const newSubTaskItem = {
+            id: Date.now(),
+            text: subTaskInput,
+            completed: false
+        };
+        setSubTasks([...subTasks, newSubTaskItem]);
+        setSubTaskInput('');
+    };
+    
+    const handleRemoveSubTask = (id) => {
+        setSubTasks(subTasks.filter(sub => sub.id !== id));
+    };
+
     const handleTasks = (e) => {
         e.preventDefault();
         if(!task.trim()) return;
@@ -64,11 +83,13 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
             endDate: endDate,    
             category: categoryInput.trim(),
             priority: priority,
-            date: selectedDate
+            date: selectedDate,
+            subTasks: subTasks
         };
     
         onSave(newTask);
         setCategoryInput('');
+        setSubTasks([]);
     }
 
     return(
@@ -114,6 +135,45 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
+
+                {/* add sub tasks section*/}
+                <div className="input-group">
+                    <label>Sub-Tasks</label>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                        <input 
+                            type="text"
+                            placeholder="Add a small step..."
+                            value={subTaskInput}
+                            onChange={(e) => setSubTaskInput(e.target.value)}
+                        />
+                        <button 
+                            className="subtask-add-btn"
+                            type="button" 
+                            onClick={handleAddSubTask}
+                            style={{ padding: '0 15px', cursor: 'pointer' }}
+                        >
+                            + Add
+                        </button>
+                    </div>
+
+                    {/* show added sub tasks*/}
+                    {subTasks.length > 0 && (
+                        <ul style={{ marginTop: '8px', listStyle: 'none', padding: 0 }}>
+                            {subTasks.map((sub) => (
+                                <li key={sub.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.05)', padding: '5px 10px', marginBottom: '4px', borderRadius: '6px', fontSize: '12px' }}>
+                                    <span>• {sub.text}</span>
+                                    <button 
+                                        type="button" 
+                                        onClick={() => handleRemoveSubTask(sub.id)}
+                                        style={{ background: 'transparent', border: 'none', color: '#ff6b6b', cursor: 'pointer' }}
+                                    >
+                                        ✕
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
                 
                 <div className="time-inputs-row">
                     <div className="input-group">
@@ -144,6 +204,10 @@ const CreateTask = ({ onSave, editingTasks, addTasks, tasksCount = 0 }) => {
     className="custom-category-input"
   />
 </div>
+
+
+
+
 
                 <div className="input-group">
                     <label>Priority</label>

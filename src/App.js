@@ -1,4 +1,4 @@
-import {BottomNav, CreateTask, Home, Welcome } from './components';
+import {BottomNav, CreateTask, Home, Welcome, TaskCard } from './components';
 import './App.css';
 import { useEffect, useState } from 'react';
 
@@ -14,6 +14,12 @@ function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     return localStorage.getItem('taskify-username') ?"home" : "welcome";
   });
+  const [filter, setFilter] = useState('All');
+  const filteredTasks = tasks.filter(item => {
+    if(filter === 'Active') return !item.completed;
+    if(filter === 'Completed') return item.completed;
+    return true;
+  });
 
   useEffect(() => {
     localStorage.setItem('taskify-tasks', JSON.stringify(tasks));
@@ -22,6 +28,11 @@ function App() {
   useEffect(() => {
     localStorage.setItem('taskify-username', username);
   },[username]);
+
+
+ const handleClearCompleted = () => {
+  setTasks(prevTasks => prevTasks.filter(task => !task.completed));
+};
 
   //updating tasks
 const handleSaveTask = (taskData) => {
@@ -34,6 +45,20 @@ const handleSaveTask = (taskData) => {
         }
         setCurrentPage('home');
 }
+
+const handleToggleSubTask = (taskId, subTaskId) => {
+  setTasks(prevTasks =>
+    prevTasks.map(t => {
+      if (t.id === taskId) {
+        const updatedSubTasks = t.subTasks.map(sub =>
+          sub.id === subTaskId ? { ...sub, completed: !sub.completed } : sub
+        );
+        return { ...t, subTasks: updatedSubTasks };
+      }
+      return t;
+    })
+  );
+};
 
 //deleting tasks
 const handleDeleteTasks = (id) => {
@@ -68,6 +93,7 @@ const handleEditTask = (task) => {
       {currentPage === "welcome" && (
         <Welcome 
         taskNumber={tasks.length} 
+        tasks={tasks}
         onStart={(name) => {
             if (name) setUsername(name); 
             setCurrentPage("home");}}/>
@@ -75,11 +101,15 @@ const handleEditTask = (task) => {
       {currentPage === "home" && (
         <Home 
         username={username}
-        tasks={tasks}
+        tasks={filteredTasks}
         onDelete={handleDeleteTasks}
         onEdit={handleEditTask}
         onToggle={handleToggleComplete}
-        goToCreate={()=>{setEditingTasks(null); setCurrentPage('create');}} />
+        onToggleSubTask={handleToggleSubTask}
+        goToCreate={()=>{setEditingTasks(null); setCurrentPage('create');}}
+        handleClearCompleted= {handleClearCompleted}
+        filter= {filter}
+        setFilter= {setFilter} />
       )} 
         {currentPage === "create" && (
           <CreateTask 
@@ -88,11 +118,8 @@ const handleEditTask = (task) => {
            editingTasks={editingTasks}/>
 
         )}
-      
-
-     
-      <BottomNav currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
+      <BottomNav currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </>
   );
 }
